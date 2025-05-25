@@ -23,7 +23,7 @@ public class App
      JsonPath js = new JsonPath(response);
      String placeId= js.getString("place_id");
      
-     System.out.println(placeId);
+     System.out.println("PlaceID is " +placeId);
      
      //Update Address
      String updatedAddress= "70 winter walk, USA";
