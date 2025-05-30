@@ -51,7 +51,13 @@ public class App
     	 
      }
      
+     //Below is the code to create a RequestSpecification object which can be used to set common parameters for all requests.
      
-     
+//     RequestSpecification  reqSpec = new RequestSpecBuilder()
+//             .setBaseUri("https://jsonplaceholder.typicode.com")
+//             .addHeader("Content-Type", "application/json")
+//             .log(LogDetail.ALL)
+//             .build();
+//     
     }
 }

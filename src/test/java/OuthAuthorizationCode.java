@@ -11,7 +11,7 @@ public class OuthAuthorizationCode {
 	public static void main(String[] args) {
 		
 		
-//		#######Get Access Code by hitting the url on the browser using Selenium#######
+//		#######  Get Access Code by hitting the url on the browser using Selenium    #######
 		
 //		 WebDriver driver = new ChromeDriver();
 //		 driver.get("https://accounts.google.com/o/oauth2/v2/auth?auth_url=https://accounts.google.com/o/oauth2/v2/auth&scope=https://www.googleapis.com/auth/userinfo.email&client_id=692183103107-p0m7ent2hk7suguv4vq22hjcfhcr43pj.apps.googleusercontent.com&response_type=code&redirect_uri=https://rahulshettyacademy.com/getCourse.php&state=Test");	 
@@ -24,7 +24,7 @@ public class OuthAuthorizationCode {
 		 String url="https://rahulshettyacademy.com/getCourse.php?state=Test&code=4%2F0AQSTgQErfbAeVPjC0pQScwdyNl0gliKeEYcKG0SxPZr4qpoQtiIEhde8gIKnNA4IoadHdQ&scope=email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=none";
 		 String partialCode=url.split("code=")[1];
 		 String code= partialCode.split("&scope")[0];
-		 System.out.println("Code is --" +  code);
+		 System.out.println("Code is " +  code);
 		 
 //		#######Get Access Token using Access Code##############
 		 
