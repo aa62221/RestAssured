@@ -59,5 +59,7 @@ public class App
 //             .log(LogDetail.ALL)
 //             .build();
 //     
+//              given().spec(reqSpec).....
     }
+    
 }

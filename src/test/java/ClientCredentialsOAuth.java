@@ -1,10 +1,8 @@
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.equalTo;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.lessThan;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-
-import static org.hamcrest.Matchers.*;
 
 
 public class ClientCredentialsOAuth {
@@ -25,7 +23,7 @@ public class ClientCredentialsOAuth {
 		//You can also assert the response time using below code
 		//LessThan() comes from hamcrest library
 		response.then().assertThat().time(lessThan(2000L));
-	     
+		
 		 String res = response.asString();
 		 JsonPath js = new JsonPath(res);
 	     String accessToken= js.getString("access_token");

@@ -1,9 +1,5 @@
 import static io.restassured.RestAssured.given;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import io.restassured.path.json.JsonPath;
 
 public class OuthAuthorizationCode {
