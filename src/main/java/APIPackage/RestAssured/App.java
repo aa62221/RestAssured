@@ -1,18 +1,28 @@
 package APIPackage.RestAssured;
 
-import io.restassured.RestAssured;
-import io.restassured.path.json.JsonPath;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.filter.log.LogDetail;
+import io.restassured.path.json.JsonPath;
+import io.restassured.specification.RequestSpecification;
 public class App 
 {
     public static void main( String[] args )
     {
-       
-     RestAssured.baseURI ="https://rahulshettyacademy.com";    
+    	
+    RequestSpecification reqSpec = new RequestSpecBuilder()
+    	             .setBaseUri("https://rahulshettyacademy.com")
+    	             .addHeader("Content-Type", "application/json")
+    	             .log(LogDetail.ALL)
+    	             .addQueryParam("key", "qaclick123")
+    	             .build();
+
+//     RestAssured.baseURI ="https://rahulshettyacademy.com";    
      //Add Place
-     String response= given().log().all().queryParam("key", "qaclick123").header("Content-Type","application/json").
+     String response= given().spec(reqSpec).
      body(Files.AddPlace()).
      when().post("maps/api/place/add/json").
      then().log().all().assertThat().statusCode(200).body("scope", equalTo("APP")).
@@ -27,7 +37,7 @@ public class App
      
      //Update Address
      String updatedAddress= "70 winter walk, USA";
-     given().log().all().queryParam("key", "qaclick123").header("Content-Type","application/json").
+     given().spec(reqSpec).
      body("{\r\n"
      		+ "\"place_id\":\""+placeId+"\",\r\n"
      		+ "\"address\":\""+updatedAddress+"\",\r\n"
@@ -39,7 +49,7 @@ public class App
      
      
      //Get Place with Updated Address
-     String response1= given().log().all().queryParam("key", "qaclick123").queryParam("place_id", placeId).
+     String response1= given().spec(reqSpec).queryParam("place_id", placeId).
      when().get("maps/api/place/get/json").
      then().log().all().assertThat().statusCode(200).extract().response().asString();
      
@@ -51,15 +61,9 @@ public class App
     	 
      }
      
-     //Below is the code to create a RequestSpecification object which can be used to set common parameters for all requests.
      
-//     RequestSpecification  reqSpec = new RequestSpecBuilder()
-//             .setBaseUri("https://jsonplaceholder.typicode.com")
-//             .addHeader("Content-Type", "application/json")
-//             .log(LogDetail.ALL)
-//             .build();
-//     
-//              given().spec(reqSpec).....
+   
+     
     }
     
 }
