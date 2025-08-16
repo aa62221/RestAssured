@@ -35,6 +35,8 @@ public class DynamicJson {
 	                .when().delete("Library/DeleteBook.php")
 	                .then().log().all()
 	                .extract().response();
+	        
+	      
 
 	        // Print status code and response body for the delete request
 	        int statusCode = deleteResponse.getStatusCode();
