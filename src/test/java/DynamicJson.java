@@ -36,7 +36,6 @@ public class DynamicJson {
 	                .then().log().all()
 	                .extract().response();
 	        
-	      
 
 	        // Print status code and response body for the delete request
 	        int statusCode = deleteResponse.getStatusCode();
