@@ -24,6 +24,7 @@ public class ClientCredentialsOAuth {
 		//LessThan() comes from hamcrest library
 		response.then().assertThat().time(lessThan(2000L));
 		
+		
 		 String res = response.asString();
 		 JsonPath js = new JsonPath(res);
 	     String accessToken= js.getString("access_token");
